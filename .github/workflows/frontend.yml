@@ -1,0 +1,27 @@
+name: Front-end CI/CD
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+        run:
+          working-directory: ./application/frontend/
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run unit tests
+      run: npm test
+
+    - name: Build
+      run: npm run build

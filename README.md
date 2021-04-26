@@ -26,7 +26,7 @@ There are a few simple options for registering a **Handshake** domain name:
 
 ## Step 2 - Deploy back-end to Akash
 
-You can, of course, deploy to Akash using the **standard Akash CLI** directly [https://docs.akash.network/guides/install](https://docs.akash.network/guides/install) but for the purpose of this guide, I am using **tombeynon's Akash Deploy UI** [https://github.com/tombeynon/akash-deploy](https://github.com/tombeynon/akash-deploy) which is a tool built on top of the standard CLI.
+You can deploy to Akash using the **standard Akash CLI** directly [https://docs.akash.network/guides/install](https://docs.akash.network/guides/install) but for the purpose of this guide, I am using **tombeynon's Akash Deploy UI** [https://github.com/tombeynon/akash-deploy](https://github.com/tombeynon/akash-deploy) which is a tool built on top of the standard CLI. Steps for deploying to Akash using this tool are below.
 
 1. Make sure **Docker** [https://www.docker.com/](https://www.docker.com/) is installed
 2. Start the **Akash Deploy UI** tool by running the following:
@@ -45,9 +45,9 @@ You can, of course, deploy to Akash using the **standard Akash CLI** directly [h
 ...
 
 ## Step 5 - Access Handshake domain
-You can use the methods described in this guide [https://www.namebase.io/blog/how-to-access-handshake-domains/](https://www.namebase.io/blog/how-to-access-handshake-domains/) to add support for resolving Handshake domains. With this approach **you will be able to visit the domain directly** and have it resolve, ex. **[http://unstoppable.c](https://www.namebase.io/blog/how-to-access-handshake-domains/)**
+You can use the methods described in this guide [https://www.namebase.io/blog/how-to-access-handshake-domains/](https://www.namebase.io/blog/how-to-access-handshake-domains/) to add support for resolving Handshake domains. With this approach **you will be able to visit the domain directly** and have it resolve, ex. **[http://unstoppable.c](http://unstoppable.c)**
 
-**Another option** is to use the proxy site **http://hns.to** which will allow those clients not configured to use the Handshake DNS servers to still resolve any Handshake domain. This is done by prepending your domain to hns.to, ex. **[http://unstoppable.c.hns.to]()**.
+**Another option** is to use the proxy site **http://hns.to** which will allow those clients not configured to use the Handshake DNS servers to still resolve any Handshake domain. This is done by prepending your domain to hns.to, ex. **[http://unstoppable.c.hns.to](http://unstoppable.c.hns.to)**.
 
 ## Step 6 - Setup database backups
 Database backups can be stored in a decentralized manner on **Sia**, **Skynet**, or **Storj** by using **Filebase** [https://filebase.com/ ](https://filebase.com/)which is an S3-compatible object storage platform. There are a number of services that integrate with **Filebase** to provide automated backups.
