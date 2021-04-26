@@ -1,9 +1,9 @@
 # Unstoppable Stack
-This guide and repository serves as a proof of concept for deploying a full-stack web application using modern decentralized platforms.
+This guide and repository serves as a proof of concept for deploying a full-stack web application using the latest decentralized infrastructure.
 
 ### Decentralized infrastructure
-- back-end platform: **Akash** [https://akash.network/](https://akash.network/)
-- front-end platform: **Skynet** [https://siasky.net/](https://siasky.net/)
+- back-end: **Akash** [https://akash.network/](https://akash.network/)
+- front-end: **Skynet** [https://siasky.net/](https://siasky.net/)
 - domain/DNS: **Handshake** [https://handshake.org/](https://handshake.org/)
 
 ### Web application
@@ -21,7 +21,7 @@ There are a few simple options for registering a **Handshake** domain name:
 
 	Domain purchases using Handshake are achieved through an [auction process](https://www.namebase.io/blog/tutorial-3-basics-of-handshake-auction-and-bidding). It will take **10 days** for your auction to finalize (and a winning bid) before you can make use of the domain.
 
-2. Use **gateway.io** [https://gateway.io/](https://gateway.io/) to purchase a domain under one of gateway's existing top-level Handshake domains, like **.c** or **.api**. Domains purchased in this way are **usable immediately**. This is the option I used for this guide to purchase **[http://unstoppable.c]()**.
+2. Use **gateway.io** [https://gateway.io/](https://gateway.io/) to purchase a domain under one of gateway's existing top-level Handshake domains, like **.c** or **.api**. Domains purchased in this way are **usable immediately**. This is the option I used for this guide to purchase **[http://unstoppable.c](http://unstoppable.c)**.
 
 
 ## Step 2 - Deploy back-end to Akash
@@ -50,4 +50,8 @@ You can use the methods described in this guide [https://www.namebase.io/blog/ho
 **Another option** is to use the proxy site **http://hns.to** which will allow those clients not configured to use the Handshake DNS servers to still resolve any Handshake domain. This is done by prepending your domain to hns.to, ex. **[http://unstoppable.c.hns.to]()**.
 
 ## Step 6 - Setup database backups
-...
+Database backups can be stored in a decentralized manner on **Sia**, **Skynet**, or **Storj** by using **Filebase** [https://filebase.com/ ](https://filebase.com/)which is an S3-compatible object storage platform. There are a number of services that integrate with **Filebase** to provide automated backups.
+
+- **BackupNinja** [https://docs.filebase.com/partner-integrations/backupninja](https://docs.filebase.com/partner-integrations/backupninja)
+-  **SimpleBackups** [https://simplebackups.io/filebase-backup-and-restore/](https://simplebackups.io/filebase-backup-and-restore/)
+-  **SharpShooter** [https://docs.filebase.com/partner-integrations/snapshooter](https://docs.filebase.com/partner-integrations/snapshooter)
