@@ -1,5 +1,8 @@
 name: Front-end CI/CD
-on: [push]
+on:
+  push:
+    paths:
+      - 'application/frontend/**' 
 jobs:
   build:
     runs-on: ubuntu-latest

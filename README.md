@@ -1,17 +1,23 @@
 # Unstoppable Stack
-This guide and repository serves as a proof of concept for deploying a full-stack web application using the latest decentralized infrastructure.
+
+This project serves as a general guide and proof of concept for **deploying a full-stack web application onto blockchain-based decentralized infrastructure**.
+
+The repository is structured as a **monorepo** - with **infrastructure configuration**, **application front-end code**, and **application back-end code** all in one repository. This is done so that anyone can easily clone this one repository and begin to experiment with deploying a decentralized full-stack application.
+
 
 ### Decentralized infrastructure
-- back-end: **Akash** [https://akash.network/](https://akash.network/)
-- front-end: **Skynet** [https://siasky.net/](https://siasky.net/)
-- domain/DNS: **Handshake** [https://handshake.org/](https://handshake.org/)
+
+| Domain / DNS | Front-end  | Back-end |
+|:---:|:---:|:---:|
+| ![](guide/images/handshake_logo.png) | ![](guide/images/skynet_logo.png) | ![](guide/images/akash_logo.png) |
+| [Handshake](https://handshake.org/) | [Skynet](https://siasky.net/) | [Akash](https://akash.network/) |
 
 ### Web application
-The test application that we will deploy in this guide is a todo app, built using the technologies below. The application structure is bootstrapped using **cookiecutter** [https://github.com/cookiecutter/cookiecutter](https://github.com/cookiecutter/cookiecutter) with this **template** [https://github.com/Buuntu/fastapi-react](https://github.com/Buuntu/fastapi-react).
+The test application that we will deploy in this guide is a todo app, built using the technologies below. The application structure is bootstrapped using **cookiecutter** [https://github.com/cookiecutter/cookiecutter](https://github.com/cookiecutter/cookiecutter) using this **template** [https://github.com/Buuntu/fastapi-react](https://github.com/Buuntu/fastapi-react).
 
-- back-end: **FastAPI** (Python) [https://fastapi.tiangolo.com/](https://fastapi.tiangolo.com/)
-- front-end: **React** [https://reactjs.org/](https://reactjs.org/)
-- database: **PostgreSQL** [https://www.postgresql.org/](https://www.postgresql.org/)
+| Front-end  | Back-end | Database |
+|:---:|:---:|:---:|
+| [FastAPI (Python)](https://fastapi.tiangolo.com/)| [React](https://reactjs.org/)|[PostgreSQL](https://www.postgresql.org/) |
 
 
 ## Step 1 - Buy Handshake domain
@@ -19,7 +25,7 @@ There are a few simple options for registering a **Handshake** domain name:
 
 1. Use a platform like **Namebase** [https://www.namebase.io/](https://www.namebase.io/) or a tool like **Bob Wallet** [https://github.com/kyokan/bob-wallet ](https://github.com/kyokan/bob-wallet) to purchase a top-level Handshake domain.
 
-	Domain purchases using Handshake are achieved through an [auction process](https://www.namebase.io/blog/tutorial-3-basics-of-handshake-auction-and-bidding). It will take **10 days** for your auction to finalize (and a winning bid) before you can make use of the domain.
+	Domain purchases using Handshake are achieved through an [auction process](https://www.namebase.io/blog/tutorial-3-basics-of-handshake-auction-and-bidding). It will take **10 days** for your auction to finalize. and a winning bid, before you can make use of the domain.
 
 2. Use **gateway.io** [https://gateway.io/](https://gateway.io/) to purchase a domain under one of gateway's existing top-level Handshake domains, like **.c** or **.api**. Domains purchased in this way are **usable immediately**. This is the option I used for this guide to purchase **[http://unstoppable.c](http://unstoppable.c)**.
 
@@ -39,7 +45,7 @@ You can deploy to Akash using the **standard Akash CLI** directly [https://docs.
 5. **Fund this new wallet with at least 5 AKT** (5,000,000 UAKT) by transferring 5 AKT or more to the displayed wallet address.
 
 ## Step 3 - Deploy front-end to Skynet
-...
+Deployment of the front-end to Skynet is **handled automatically** in this repository, using **GitHub Actions**. When any update to the [application/frontend/](https://github.com/bcfus/unstoppable-stack/tree/master/application/frontend) directory is pushed, the Action workflow will be run automatically by GitHub. This [workflow](https://github.com/bcfus/unstoppable-stack/blob/master/.github/workflows/frontend.yml) tests, builds, and deploys the static files to **Skynet**. 
 
 ## Step 4 - Configure Handshake domain
 ...
