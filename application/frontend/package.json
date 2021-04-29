@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "@material-ui/lab": "^4.0.0-alpha.54",
+    "@types/lodash": "^4.14.168",
     "jwt-decode": "^3.0.0",
+    "lodash": "^4.17.21",
     "ra-data-json-server": "^3.5.2",
     "ra-data-simple-rest": "^3.3.2",
     "react": "^16.13.1",

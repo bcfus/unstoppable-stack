@@ -1,14 +1,28 @@
 import React, { FC, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Box, Grid } from '@material-ui/core';
+import { spacing } from '@material-ui/system';
+import Divider from '@material-ui/core/Divider';
 
 import { getMessage } from '../utils/api';
-import { isAuthenticated } from '../utils/auth';
+import { NoteList } from '../components/NoteList';
 
 const useStyles = makeStyles((theme) => ({
-  link: {
-    color: '#CC5540',
-    textDecoration: 'none',
+  h1: {
+    fontFamily: "'Roboto Mono', monospace",
+    letterSpacing: '-0.1rem',
   },
+  link: {
+    color: '#8D8741',
+    textDecoration: 'none',
+    margin: '0px 0.25rem',
+  },
+  ping: {
+    fontSize: '1rem',
+  },
+  divider: {
+    margin: '16px',
+  }
 }));
 
 export const Home: FC = () => {
@@ -16,7 +30,7 @@ export const Home: FC = () => {
   const [error, setError] = useState<string>('');
   const classes = useStyles();
 
-  const queryBackend = async () => {
+  const pingBackend = async () => {
     try {
       const message = await getMessage();
       setMessage(message);
@@ -26,27 +40,59 @@ export const Home: FC = () => {
   };
 
   return (
-    <>
-      {!message && !error && (
-        <>
-          <span>
-            To make a request to the back-end, 
-          </span>
-          <a className={classes.link} href="#" onClick={() => queryBackend()}>
-            click here
-          </a>
-        </>
-      )}
-      {message && (
-        <p>
-          <code>{message}</code>
-        </p>
-      )}
-      {error && (
-        <p>
-          Error: <code>{error}</code>
-        </p>
-      )}
-    </>
+    <Box m={2}>
+      <h1 className={classes.h1}>Unstoppable Stack</h1>
+      
+      <Grid 
+        container 
+        spacing={2}
+        direction="row"
+        justify="center"
+        alignItems="center"
+      >
+        <Grid item sm={8}>
+          <>
+            <span>
+              The frontend of this site is being served from <b>Skynet</b>.
+              To ping the backend running on <b>Akash</b>, 
+            </span>
+
+            <a className={classes.link} href="#" onClick={() => pingBackend()}>
+              click here
+            </a>
+          </>
+
+          {message && (
+            <p className={classes.ping}>
+              <code>{message}</code>
+            </p>
+          )}
+
+          {error && (
+            <p className={classes.ping}>
+              Error: <code>{error}</code>
+            </p>
+          )}
+        </Grid>
+
+        <Grid item sm={8}>
+          <Divider className={classes.divider} variant="middle"/>
+          <p>
+            This <b>React</b> component persists data using Python <b>FastAPI</b> and a <b>PostgreSQL</b> database, both running on <b>Akash</b>.
+          </p>
+        </Grid>
+
+        <Grid item sm={6}>
+          <NoteList/>
+        </Grid>
+
+        <Grid item sm={8}>
+          <Divider className={classes.divider} variant="middle"/>
+          Step-by-step guide on how this application was built and deployed <a className={classes.link} href="https://github.com/bcfus/unstoppable-stack">https://github.com/bcfus/unstoppable-stack</a>.
+        </Grid>
+      </Grid>
+    </Box>
+
+    
   );
 };
