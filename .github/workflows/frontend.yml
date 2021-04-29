@@ -3,6 +3,7 @@ on:
   push:
     branches: [master]
     paths:
+      - '.github/workflows/**'
       - 'application/frontend/**' 
 jobs:
   build:
@@ -35,3 +36,4 @@ jobs:
       with:
         upload-dir: ./application/frontend/build
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        registry-seed: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && secrets.REGISTRY_SEED || '' }}
