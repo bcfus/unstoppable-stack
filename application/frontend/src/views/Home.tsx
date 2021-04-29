@@ -8,6 +8,9 @@ import { getMessage } from '../utils/api';
 import { NoteList } from '../components/NoteList';
 
 const useStyles = makeStyles((theme) => ({
+  main: {
+    maxWidth: '950px',
+  },
   h1: {
     fontFamily: "'Roboto Mono', monospace",
     letterSpacing: '-0.1rem',
@@ -40,7 +43,7 @@ export const Home: FC = () => {
   };
 
   return (
-    <Box m={2}>
+    <Box m={2} className={classes.main}>
       <h1 className={classes.h1}>Unstoppable Stack</h1>
       
       <Grid 
@@ -50,7 +53,7 @@ export const Home: FC = () => {
         justify="center"
         alignItems="center"
       >
-        <Grid item sm={8}>
+        <Grid item sm={10}>
           <>
             <span>
               The frontend of this site is being served from <b>Skynet</b>.
@@ -75,18 +78,18 @@ export const Home: FC = () => {
           )}
         </Grid>
 
-        <Grid item sm={8}>
+        <Grid item sm={10}>
           <Divider className={classes.divider} variant="middle"/>
           <p>
-            This <b>React</b> component persists data using Python <b>FastAPI</b> and a <b>PostgreSQL</b> database, both running on <b>Akash</b>.
+            This <b>React</b> component is backed by a Python <b>FastAPI</b> application and a <b>PostgreSQL</b> database, both running on <b>Akash</b>.
           </p>
         </Grid>
 
-        <Grid item sm={6}>
+        <Grid item sm={10}>
           <NoteList/>
         </Grid>
 
-        <Grid item sm={8}>
+        <Grid item sm={10}>
           <Divider className={classes.divider} variant="middle"/>
           Step-by-step guide on how this application was built and deployed <a className={classes.link} href="https://github.com/bcfus/unstoppable-stack">https://github.com/bcfus/unstoppable-stack</a>.
         </Grid>

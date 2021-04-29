@@ -75,7 +75,7 @@ export const NoteList: FC = () => {
 
     useEffect(() => {
         scrollToBottom()
-      }, [notes]);
+      }, []);
 
     const onTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.persist();
@@ -86,10 +86,13 @@ export const NoteList: FC = () => {
         const newNote = await createNote(text);
         setText('');
         setNotes([...notes, newNote]);
+        scrollToBottom();
     }, [text]);
 
     const scrollToBottom = () => {
-        endOfListRef.current?.scrollIntoView({ behavior: 'smooth' })
+        if(endOfListRef.current?.scrollIntoView){
+            endOfListRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     const callDeletNote = useCallback(async (event: React.SyntheticEvent<HTMLButtonElement>) => {
@@ -102,7 +105,7 @@ export const NoteList: FC = () => {
 
     return (
         <Card>
-            <Box m={1} className={classes.noteList}>
+            <Box flexGrow={1} m={1} className={classes.noteList}>
                 {notes.map((note) => (
                     <Note 
                         key={note.id}
