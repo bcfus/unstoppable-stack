@@ -2,22 +2,22 @@
 
 This project serves as a general guide and proof of concept for **deploying a full-stack web application onto blockchain-based decentralized infrastructure**.
 
-The repository is structured as a **monorepo** - with **infrastructure configuration**, **application front-end code**, and **application back-end code** all in one repository. This is done so that anyone can easily clone this one repository and begin to experiment with deploying a decentralized full-stack application.
+The repository is structured as a **monorepo** - with **infrastructure configuration**, **application frontend code**, and **application backend code** all in one repository. This is done so that anyone can easily clone this one repository and begin to experiment with deploying a decentralized full-stack application.
 
 
 ### Decentralized infrastructure
 
-| Domain / DNS | Front-end  | Back-end |
+| DNS | Frontend  | Backend |
 |:---:|:---:|:---:|
 | ![](guide/images/handshake_logo.png) | ![](guide/images/skynet_logo.png) | ![](guide/images/akash_logo.png) |
 | [Handshake](https://handshake.org/) | [Skynet](https://siasky.net/) | [Akash](https://akash.network/) |
 
 ### Web application
-The test application that we will deploy in this guide is a todo app, built using the technologies below. The application structure is bootstrapped using **cookiecutter** [https://github.com/cookiecutter/cookiecutter](https://github.com/cookiecutter/cookiecutter) using this **template** [https://github.com/Buuntu/fastapi-react](https://github.com/Buuntu/fastapi-react).
+The test application that we will deploy in this guide is a todo app, built using the technologies below. The application structure is bootstrapped using this **cookiecutter** template [https://github.com/Buuntu/fastapi-react](https://github.com/Buuntu/fastapi-react).
 
-| Front-end  | Back-end | Database |
+| Frontend  | Backend | Database |
 |:---:|:---:|:---:|
-| [FastAPI (Python)](https://fastapi.tiangolo.com/)| [React](https://reactjs.org/)|[PostgreSQL](https://www.postgresql.org/) |
+| [React](https://reactjs.org/) | [FastAPI (Python)](https://fastapi.tiangolo.com/)| [PostgreSQL](https://www.postgresql.org/) |
 
 
 ## Step 1 - Buy Handshake domain
@@ -45,7 +45,9 @@ You can deploy to Akash using the **standard Akash CLI** directly [https://docs.
 5. **Fund this new wallet with at least 5 AKT** (5,000,000 UAKT) by transferring 5 AKT or more to the displayed wallet address.
 
 ## Step 3 - Deploy front-end to Skynet
-Deployment of the front-end to Skynet is **handled automatically** in this repository, using **GitHub Actions**. When any update to the [application/frontend/](https://github.com/bcfus/unstoppable-stack/tree/master/application/frontend) directory is pushed, the Action workflow will be run automatically by GitHub. This [workflow](https://github.com/bcfus/unstoppable-stack/blob/master/.github/workflows/frontend.yml) tests, builds, and deploys the static files to **Skynet**. 
+Deployment of the front-end to Skynet is **handled automatically** in this repository, using **GitHub Actions**. When any update to the `application/frontend/` directory is pushed to the *master* branch, the Action workflow will be run automatically by GitHub. This [workflow](https://github.com/bcfus/unstoppable-stack/blob/master/.github/workflows/frontend.yml) tests, builds, and deploys the static files to **Skynet**.
+
+This GitHub workflow is based on the excellent write up by **Karol Wypchło** [https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1](https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1) and uses his pre-built Skynet deploy Action.
 
 ## Step 4 - Configure Handshake domain
 ...
