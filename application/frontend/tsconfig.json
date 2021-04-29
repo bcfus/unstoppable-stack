@@ -23,5 +23,5 @@
   "include": [
     "src",
     "decs.d.ts"
-  ]
+  ],
 }
