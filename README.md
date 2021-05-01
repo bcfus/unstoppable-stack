@@ -1,6 +1,6 @@
 # Unstoppable Stack
 
-This project serves as a general guide and proof of concept for **deploying a full-stack web application onto blockchain-based decentralized infrastructure**.
+This repository serves as a general guide and proof of concept for **deploying a full-stack web application onto blockchain-based decentralized infrastructure**.
 
 The repository is structured as a **monorepo** - with **infrastructure configuration**, **application frontend code**, and **application backend code** all in one repository. This is done so that anyone can easily clone this one repository and begin to experiment with deploying a decentralized full-stack application.
 
@@ -26,6 +26,8 @@ If you have your device configured to use **Handshake** DNS, you can **visit the
 
 If you do not have **Handshake** DNS enabled, you can [read here](#step-5---access-handshake-domain) how to enable it or visit the demo using **[http://unstoppable-stack.hns.to](http://unstoppable-stack.hns.to)**
 
+![](guide/images/demo.png)
+
 ## Step 1 - Buy Handshake domain
 There are a few simple options for registering a **Handshake** domain name:
 
@@ -48,14 +50,26 @@ You can deploy to Akash using the **standard Akash CLI** directly [https://docs.
 ]() to access the tool
 4. Use the tool to **create a new wallet**. Make sure to record your mnemonic phrase so that you can restore the wallet if needed in the future.
 5. **Fund this new wallet with at least 5 AKT** (5,000,000 UAKT) by transferring 5 AKT or more to the displayed wallet address.
+6. Create a new certificate
+7. 
 
 ## Step 3 - Deploy front-end to Skynet
 Deployment of the front-end to Skynet is **handled automatically** in this repository, using **GitHub Actions**. When any update to the `application/frontend/` directory is pushed to the *master* branch, the Action workflow will be run automatically by GitHub. This [workflow](https://github.com/bcfus/unstoppable-stack/blob/master/.github/workflows/frontend.yml) tests, builds, and deploys the static files to **Skynet**.
 
-This GitHub workflow is based on the excellent write up by **Karol Wypchło** [https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1](https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1) and uses his pre-built Skynet deploy Action.
+This GitHub workflow is based on the excellent write up by **Karol Wypchło** [https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1](https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1) and uses his pre-built Skynet deploy Action. 
+
+The result of this GitHub Action is a **Skynet registry entry** that provides a constant point of reference for your DNS record. The **Skylink** itself changes with each deployment to Skynet and would require you to constantly update your DNS record if referencing it directly.
 
 ## Step 4 - Configure Handshake domain
-...
+**Once your GitHub action completes**, you will visit the link shown in the Action log in GitHub, under the *Deply to Skynet* step. Visit the registry entry link you see there. You will then create your `skyns://` URL by extracting the public key (`signature`) and datakey (`data`) from this registry entry value and putting them together in the format `skyns://<signature>/<data>`.
+
+![](guide/images/deploy_to_skynet_action.png)
+
+If using **Namebase**, you can configure your Handshake domain to point to your Skynet hosted frontend by adding a TXT record under the *Blockchain DNS Records* section on your domain manage page. The value of this record is the `skyns://` URL that you formed above.
+
+![](guide/images/namebase_hns_skynet_dns_setting.png)
+
+This **initial DNS configuration will take ~6 hours to be reflected**. For all future code changes pushed to the *master* branch, the *Deploy to Skynet* Action will automatically update your Skynet Registry data and you should see the changes reflected very quickly.
 
 ## Step 5 - Access Handshake domain
 **To add support for resolving Handshake** domains, replace your device's DNS server addresses with `103.196.38.38` and `103.196.38.39`. More detail can be found in this guide [https://www.namebase.io/blog/how-to-access-handshake-domains/](https://www.namebase.io/blog/how-to-access-handshake-domains/)

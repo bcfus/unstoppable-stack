@@ -10,7 +10,6 @@ import { logout } from './utils/auth';
 const useStyles = makeStyles((theme) => ({
   app: {
     textAlign: 'center',
-    fontFamily: 'serif',
   },
   header: {
     backgroundColor: '#EFF0EF',

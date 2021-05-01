@@ -9,7 +9,7 @@ import { NoteList } from '../components/NoteList';
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    maxWidth: '950px',
+    maxWidth: '800px',
   },
   h1: {
     fontFamily: "'Roboto Mono', monospace",
