@@ -9,11 +9,12 @@ import { NoteList } from '../components/NoteList';
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    maxWidth: '800px',
+    maxWidth: '750px',
   },
   h1: {
     fontFamily: "'Roboto Mono', monospace",
     letterSpacing: '-0.1rem',
+    fontSize: '2.5em',
   },
   link: {
     color: '#8D8741',

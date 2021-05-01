@@ -51,7 +51,7 @@ You can deploy to Akash using the **standard Akash CLI** directly [https://docs.
 4. Use the tool to **create a new wallet**. Make sure to record your mnemonic phrase so that you can restore the wallet if needed in the future.
 5. **Fund this new wallet with at least 5 AKT** (5,000,000 UAKT) by transferring 5 AKT or more to the displayed wallet address.
 6. Create a new certificate
-7. 
+7. ...
 
 ## Step 3 - Deploy front-end to Skynet
 Deployment of the front-end to Skynet is **handled automatically** in this repository, using **GitHub Actions**. When any update to the `application/frontend/` directory is pushed to the *master* branch, the Action workflow will be run automatically by GitHub. This [workflow](https://github.com/bcfus/unstoppable-stack/blob/master/.github/workflows/frontend.yml) tests, builds, and deploys the static files to **Skynet**.
@@ -61,11 +61,13 @@ This GitHub workflow is based on the excellent write up by **Karol Wypchło** [h
 The result of this GitHub Action is a **Skynet registry entry** that provides a constant point of reference for your DNS record. The **Skylink** itself changes with each deployment to Skynet and would require you to constantly update your DNS record if referencing it directly.
 
 ## Step 4 - Configure Handshake domain
-**Once your GitHub action completes**, you will visit the link shown in the Action log in GitHub, under the *Deply to Skynet* step. Visit the registry entry link you see there. You will then create your `skyns://` URL by extracting the public key (`signature`) and datakey (`data`) from this registry entry value and putting them together in the format `skyns://<signature>/<data>`.
+**Once your GitHub action completes**, in the Action log in GitHub under the *Deply to Skynet* step, you will see a link to `https://siasky.net/skynet/registry` with parameters in the URL for `publickey` and `datakey`.
+
+You now need to copy those param values and create your `skyns://` URL in the format `skyns://<publickey>/<datakey>`. The registry link will remain constant in the future, so this is a one-time manual step.
 
 ![](guide/images/deploy_to_skynet_action.png)
 
-If using **Namebase**, you can configure your Handshake domain to point to your Skynet hosted frontend by adding a TXT record under the *Blockchain DNS Records* section on your domain manage page. The value of this record is the `skyns://` URL that you formed above.
+If using **Namebase**, you can now configure your Handshake domain to point to your Skynet hosted frontend by adding a TXT record under the *Blockchain DNS Records* section on your domain manage page. The value of this record is the `skyns://<publickey>/<datakey>` URL that you just generated above.
 
 ![](guide/images/namebase_hns_skynet_dns_setting.png)
 
