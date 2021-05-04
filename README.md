@@ -87,7 +87,17 @@ This **initial DNS configuration can take up to ~6 hours to be synced**. For all
 
 **Once the DNS change takes effect**, your site will be accessible at `https://<hns-domain>.hns.siasky.net`. For example, the demo application for this guide is accessible at [https://unstoppable-stack.hns.siasky.net/](https://unstoppable-stack.hns.siasky.net/)
 
-## Step 6 - Setup database backups
+## Step 6 - Setup HTTPS URL for API
+Although you can now make requests directly to your Akash URL over HTTP successfully, if you attempt to make these requests from your frontend that is being served over HTTPS, your API call will be blocked due to **Mixed Content**.
+
+It is likey possible to enabled an HTTPS connection just using Akash deployment configuration but I was unable to find any documentation on this functionality. 
+
+The approach used in this guide is to sign up a free [Cloudflare](https://cloudflare.com) account and set up their **flexible** SSL/TLS encryption mode on a secondary (non-Handshake) domain in order to provide an HTTPS entrpoint that proxies requests to our Akash API server.
+
+Support for HTTPS with Akash is something that I expect to revisit soon.
+
+
+## Step 7 - Setup database backups
 Database backups can be stored in a decentralized manner on **Sia**, **Skynet**, or **Storj** by using **Filebase** [https://filebase.com/ ](https://filebase.com/)which is an S3-compatible object storage platform. There are a number of services that integrate with **Filebase** to provide automated backups.
 
 - **BackupNinja** [https://docs.filebase.com/partner-integrations/backupninja](https://docs.filebase.com/partner-integrations/backupninja)
