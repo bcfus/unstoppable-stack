@@ -148,3 +148,6 @@ yarn.lock
 # IDE
 .idea/
 .vscode/
+
+# Akash
+akash/deploy.yml
