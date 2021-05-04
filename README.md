@@ -29,6 +29,10 @@ A deployed **live demo** of the code in this repository is accessible at **[http
 
 ![](guide/images/demo.png)
 
+---
+
+# Guide
+
 ## Step 1 - Buy Handshake domain
 There are a few simple options for registering a **Handshake** domain name:
 
@@ -48,7 +52,9 @@ There are a few simple options for registering a **Handshake** domain name:
 
 ## Step 3 - Deploy back-end to Akash
 
-You can deploy to Akash using the **standard Akash CLI** directly [https://docs.akash.network/guides/install](https://docs.akash.network/guides/install) but for the purpose of this guide, I am using **tombeynon's Akash Deploy UI** [https://github.com/tombeynon/akash-deploy](https://github.com/tombeynon/akash-deploy) which is a tool built on top of the standard CLI. Steps for deploying to Akash using this tool are below.
+If you haven't already, take the time to read through the **Akash deployment documentation** and familiarize yourself with the concepts and steps involved [https://docs.akash.network/guides/deploy]([https://docs.akash.network/guides/deploy)
+
+You can deploy to Akash using the **standard Akash CLI** directly [https://docs.akash.network/guides/install](https://docs.akash.network/guides/install) but for the purpose of this guide, I am using **tombeynon's Akash Deploy UI** [https://github.com/tombeynon/akash-deploy](https://github.com/tombeynon/akash-deploy) which is a great tool built on top of the standard CLI. Steps for deploying to Akash using this tool are below.
 
 1. Start the **Akash Deploy UI** tool by running the following:
 	```
@@ -59,7 +65,7 @@ You can deploy to Akash using the **standard Akash CLI** directly [https://docs.
 3. Use the tool to **create a new wallet**. Make sure to record your mnemonic phrase so that you can restore the wallet if needed in the future.
 4. **Fund this new wallet with at least 5 AKT** (5,000,000 UAKT) by transferring 5 AKT or more to the displayed wallet address.
 5. **Create a new certificate**. This certificate only needs to be created once and will be used for all future deployments.
-6. **Create a new deployment** using `akash/deploy-sample.yml` as a template.
+6. **Create a new deployment** using `akash/deploy-sample.yml` as a template. The Akash Stack Definition Language (SDL) 
 7. Once you have created your deployment, you will start to receive bids. You can view these in the tool.
 8. Chose a bid and **Create a lease**, then **Send manifest**.
 9. At this point the tool will show you your **Web URIs** which you can use to access your application.
@@ -92,9 +98,9 @@ Although you can now make requests directly to your Akash URL over HTTP successf
 
 It is likey possible to enabled an HTTPS connection just using Akash deployment configuration but I was unable to find any documentation on this functionality. 
 
-The approach used in this guide is to sign up a free [Cloudflare](https://cloudflare.com) account and set up their **flexible** SSL/TLS encryption mode on a secondary (non-Handshake) domain in order to provide an HTTPS entrpoint that proxies requests to our Akash API server.
+The approach used in this guide is to sign up a free [Cloudflare](https://cloudflare.com) account and set up their **flexible** SSL/TLS encryption mode on a secondary (non-Handshake) domain in order to provide an HTTPS entrypoint that proxies requests to the Akash API server.
 
-Support for HTTPS with Akash is something that I expect to revisit soon.
+Support for HTTPS with Akash is something that I expect to explore further.
 
 
 ## Step 7 - Setup database backups
@@ -103,6 +109,8 @@ Database backups can be stored in a decentralized manner on **Sia**, **Skynet**,
 - **BackupNinja** [https://docs.filebase.com/partner-integrations/backupninja](https://docs.filebase.com/partner-integrations/backupninja)
 -  **SimpleBackups** [https://simplebackups.io/filebase-backup-and-restore/](https://simplebackups.io/filebase-backup-and-restore/)
 -  **SharpShooter** [https://docs.filebase.com/partner-integrations/snapshooter](https://docs.filebase.com/partner-integrations/snapshooter)
+
+---
 
 ## Run demo application locally
 To run the application locally, you can follow the steps below.
@@ -122,3 +130,17 @@ To run the application locally, you can follow the steps below.
 	```
 
 You can now **visit [http://localhost:3000](http://localhost:3000)** in the browser to **access the UI**. For testing the **API**, requests can be made to port 80, **Example**: `GET http://localhost:80/api/v1/notes`
+
+## Sources and resources
+
+#### Akash
+- Akash deployment documentation [https://docs.akash.network/guides/deploy](https://docs.akash.network/guides/deploy)
+- Akash multi-tier SDL guide [https://github.com/ovrclk/docs/blob/master/guides/multi-tier-app.md](https://github.com/ovrclk/docs/blob/master/guides/multi-tier-app.md)
+- SDL examples [https://github.com/ovrclk/awesome-akash](https://github.com/ovrclk/awesome-akash)
+- In-depth walkthrough guide [https://medium.com/coinmonks/guide-to-deploying-applications-to-akash-decloud-b35dc97e5ca4](https://medium.com/coinmonks/guide-to-deploying-applications-to-akash-decloud-b35dc97e5ca4)
+- Akash Discord [http://discord.akash.network/](http://discord.akash.network/)
+
+#### Skynet
+- Detailed Skynet deployment guide [https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1](https://blog.sia.tech/automated-deployments-on-skynet-28d2f32f6ca1)
+
+
