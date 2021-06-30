@@ -66,7 +66,7 @@ export const Home: FC = () => {
             </a>
           </>
 
-          {message && (
+          {!error && message && (
             <p className={classes.ping}>
               <code>{message}</code>
             </p>

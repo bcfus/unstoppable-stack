@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: setYOURpostgreSQLPasswordHere
+      POSTGRES_DB: postgres
+    ports:
+      - '5432:5432'
+
+  backend:
+    image: bcfus/unstoppable-stack-poc:latest
+    tty: true
+    ports:
+      - 80:80
+    environment:
+      PYTHONPATH: .
+      DATABASE_URL: postgresql://<user>:<password>@<database>:5432/postgres
+    depends_on:
+      - "postgres"
+

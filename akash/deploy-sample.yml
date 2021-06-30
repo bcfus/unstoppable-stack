@@ -14,13 +14,13 @@ services:
       - POSTGRES_DB=<database>
 
   web:
-    image: bcfus/unstoppable-stack-poc:latest
+    image: <username>/<image-name>:<tag>
     depends-on: postgres
     expose:
       - port: 80
         as: 80
         accept: 
-          - unstoppablestack.com
+          - <domain>
         to:
           - global: true
     env:

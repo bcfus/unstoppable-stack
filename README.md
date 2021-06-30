@@ -13,7 +13,7 @@ The repository is structured as a **monorepo** - with **infrastructure configura
 | [Handshake](https://handshake.org/) | [Skynet](https://siasky.net/) | [Akash](https://akash.network/) |
 
 ## Web application
-The demo application deployed in this guide is a note app - with create, read, delete functionality. It serves as a minimal proof of concept for deploying a multier web application to decentralized infrastructure.
+The demo application deployed in this guide is a note app - with create, read, delete functionality. It serves as a minimal proof of concept for deploying a multitier web application to decentralized infrastructure.
 
 | Frontend  | Backend | Database |
 |:---:|:---:|:---:|
@@ -42,7 +42,7 @@ There are a few simple options for registering a **Handshake** domain name:
 
 2. Use **gateway.io** [https://gateway.io/](https://gateway.io/) to purchase a domain under one of gateway's existing top-level Handshake domains, like **.c** or **.api**. Domains purchased in this way are **usable immediately**.
 
-## Step 2 - Push Docker image
+## Step 2 - Build + push docker image
 
 1. Make sure **Docker** [https://www.docker.com/](https://www.docker.com/) is installed
 2. **CD** to the directory where your `Dockerfile` is. For this repository, it is in `application/backend/Dockerfile`
